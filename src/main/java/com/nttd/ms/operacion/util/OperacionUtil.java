@@ -1,5 +1,6 @@
 package com.nttd.ms.operacion.util;
 
+import com.nttd.ms.operacion.client.dto.GastoCredito;
 import com.nttd.ms.operacion.client.dto.PagoCredito;
 import com.nttd.ms.operacion.entity.Operacion;
 import jakarta.enterprise.context.ApplicationScoped;
@@ -22,6 +23,17 @@ public class OperacionUtil {
         pagoCredito.setMonto(operacion.getMonto());
         pagoCredito.setFecha(operacion.getFecha());
         return pagoCredito;
+    }
+
+    public GastoCredito saveGastoTarjetaCredito(Operacion operacion) {
+        GastoCredito gastoCredito = new GastoCredito();
+        gastoCredito.setNumeroCredito(operacion.getNumeroCuentaCredito());
+        gastoCredito.setCuotasAPagar(operacion.getNumeroCuota());
+        gastoCredito.setCuotasPagadas(0);
+        gastoCredito.setMontoGastado(operacion.getMonto());
+        gastoCredito.setMontoAPagar(operacion.getMonto());
+        gastoCredito.setFecha(operacion.getFecha());
+        return gastoCredito;
     }
 
 }

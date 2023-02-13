@@ -1,6 +1,7 @@
 package com.nttd.ms.operacion.service.impl;
 
 import com.nttd.ms.operacion.client.CuentaBancariaClient;
+import com.nttd.ms.operacion.client.GastoCreditoClient;
 import com.nttd.ms.operacion.client.PagoCreditoClient;
 import com.nttd.ms.operacion.entity.Operacion;
 import com.nttd.ms.operacion.repository.OperacionRepository;
@@ -27,6 +28,9 @@ public class OperacionServiceImpl implements OperacionService {
 
     @RestClient
     PagoCreditoClient pagoCredito;
+
+    @RestClient
+    GastoCreditoClient gastoCredito;
 
     @Override
     public List<Operacion> findAll() {
@@ -65,6 +69,10 @@ public class OperacionServiceImpl implements OperacionService {
             case "4", "5" -> {
                 operacionRepository.persist(operacion);
                 pagoCredito.save(operacionUtil.savePagoCredito(operacion));
+            }
+            case "6" -> {
+                operacionRepository.persist(operacion);
+                gastoCredito.save(operacionUtil.saveGastoTarjetaCredito(operacion));
             }
             default -> System.out.println("El tipo de Operación no es correcta.");
         }
