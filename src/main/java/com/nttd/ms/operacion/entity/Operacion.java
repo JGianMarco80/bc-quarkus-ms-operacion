@@ -20,11 +20,19 @@ public class Operacion {
     private Long id;
 
     @Column(name = "fecha")
-    private LocalDate fecha;
+    private LocalDate fecha = LocalDate.now();
 
     @Column(name = "descripcion")
     private String descripcion;
 
+    @Column(name = "monto")
+    private Double monto;
+
+    //1:Deposito
+    //2:Retiro
+    //3:transferencia
+    //4:Pago de credito
+    //5:Pago de tarjeta de credito
     @Column(name = "tipo_operacion")
     private String tipoOperacion;
 

@@ -33,18 +33,4 @@ public class OperacionResource {
     public void save(Operacion operacion){
         operacionService.save(operacion);
     }
-
-    /*@PUT
-    @Path("/{id}")
-    @Transactional
-    public void update(@PathParam("id") Long id, Operacion operacion){
-        operacionService.update(id, operacion);
-    }
-
-    @DELETE
-    @Path("/{id}")
-    @Transactional
-    public void delete(@PathParam("id") Long id){
-        operacionService.delete(id);
-    }*/
 }

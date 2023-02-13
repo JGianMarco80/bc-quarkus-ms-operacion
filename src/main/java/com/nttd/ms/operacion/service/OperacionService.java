@@ -12,8 +12,4 @@ public interface OperacionService {
 
     void save(Operacion operacion);
 
-    //void update(Long id, Operacion operacion);
-
-    //void delete(Long id);
-
 }
